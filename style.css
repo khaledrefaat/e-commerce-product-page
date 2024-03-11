@@ -51,6 +51,10 @@ nav {
   margin-left: auto;
 }
 
+.nav-actions .cart {
+  cursor: pointer;
+}
+
 .nav-actions .avatar {
   width: 45px;
   height: 45px;
@@ -169,6 +173,7 @@ nav::after {
   outline: none;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .quantity .action span {
@@ -188,9 +193,10 @@ nav::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
-.quantity .cart {
+.add-to-cart .cart {
   margin-right: 0.5rem;
 }
 
@@ -246,6 +252,7 @@ nav::after {
     border-radius: 8px;
     width: 90px;
     height: 90px;
+    cursor: pointer;
   }
 
   .images .product-image img {
