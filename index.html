@@ -14,6 +14,7 @@
 
 <body>
   <header>
+    <img src="./images/icon-menu.svg" alt="menu" class="nav-icon">
     <img src="./images/logo.svg" alt="logo">
     <nav>
       <ul class="nav-list">
@@ -41,7 +42,7 @@
           fill="#777777" fill-rule="nonzero" />
       </svg>
       <img src="./images/image-avatar.png" alt="avatar image" class="avatar">
-      <div class="cart">
+      <div class="cart hide-cart">
         <h4>Cart</h4>
         <!-- <div class="cart-items">
           <div class="cart-item">
@@ -64,7 +65,17 @@
     <div class="container">
       <div class="img">
         <div class="hero-img">
-          <img src="./images/image-product-1.jpg" alt="product image">
+          <button class="next">
+            <svg class="next-icon" width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="m2 1 8 8-8 8" stroke-width="3" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <img src="./images/image-product-1.jpg" alt="product imagae">
+          <button class="previous">
+            <svg class="previous-icon" width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 1 3 9l8 8" stroke-width="3" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
         </div>
         <div class="images">
           <div class="product-image active">
@@ -107,9 +118,38 @@
       </div>
     </div>
   </main>
-  0
-  Add to cart
-
+  <div class="modal hide-modal">
+    <div class="modal-content--desktop">
+      <div class="hero-image">
+        <button class="next">
+          <svg class="next-icon" width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="m2 1 8 8-8 8" stroke-width="3" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+        <img src="./images/image-product-1.jpg" alt="product imagae">
+        <button class="previous">
+          <svg class="previous-icon" width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 1 3 9l8 8" stroke-width="3" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      <div class="products-images">
+        <div class="product-image active">
+          <img src="./images/image-product-1.jpg" alt="product image">
+        </div>
+        <div class="product-image">
+          <img src="./images/image-product-2.jpg" alt="product image">
+        </div>
+        <div class="product-image">
+          <img src="./images/image-product-3.jpg" alt="product image">
+        </div>
+        <div class="product-image">
+          <img src="./images/image-product-4.jpg" alt="product image">
+        </div>
+      </div>
+      <img src="./images/icon-close.svg" alt="close icon" class="close">
+    </div>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Khaled Refaat</a>.

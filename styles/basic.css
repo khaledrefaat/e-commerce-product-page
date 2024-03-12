@@ -1,0 +1,35 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: #666;
+  --secondary-text-color: #999;
+  --primary-color: #ff7e1b;
+  --primary-shade: #e8904c;
+}
+
+body {
+}
+
+h1,
+h2,
+h3 {
+  font-family: sans-serif;
+}

@@ -1,0 +1,124 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 4;
+}
+
+.modal-content--desktop {
+  display: none;
+}
+
+.hide-modal,
+.hide-cart {
+  display: none;
+}
+
+.hide-modal .modal-content--desktop,
+.hide-modal .modal-content--mobile {
+  display: none;
+}
+
+@media only screen and (min-width: 48rem) /* 768px */ {
+  .modal-content--mobile {
+    display: none;
+  }
+
+  .modal-content--desktop {
+    display: block;
+  }
+
+  .modal .product-image {
+    border-radius: 8px;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .modal .products-images img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal .products-images {
+    position: absolute;
+    left: 24%;
+    top: 85%;
+    transform: translate(50%, -50%);
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    gap: 1rem;
+  }
+
+  .modal .active {
+    border: 3px solid var(--primary-color);
+    position: relative;
+  }
+  .modal .active::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .modal-content--desktop .hero-image {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .modal-content--desktop .hero-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+
+  .modal-content--desktop .hero-image button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: none;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .modal-content--desktop .hero-image button > svg {
+    stroke: #000;
+  }
+
+  .modal-content--desktop .hero-image button:active > svg {
+    stroke: var(--primary-color);
+  }
+
+  .modal-content--desktop .hero-image .next {
+    right: -1.2rem;
+  }
+
+  .modal-content--desktop .hero-image .previous {
+    left: -1.2rem;
+  }
+
+  .close {
+    position: absolute;
+    top: 8%;
+    right: 34%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
