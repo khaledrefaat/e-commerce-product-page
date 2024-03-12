@@ -18,12 +18,46 @@
 }
 
 .hide-modal .modal-content--desktop,
-.hide-modal .modal-content--mobile {
+.hide-modal .sidebar {
   display: none;
 }
 
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #fff;
+  width: 40%;
+}
+
+.sidebar ul {
+  height: 100%;
+  width: 100%;
+  padding-left: 2rem;
+  padding-top: 4rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sidebar ul li {
+  margin-bottom: 2rem;
+  font-weight: 900;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sidebar .close {
+  position: absolute;
+  top: 2%;
+  left: 7%;
+}
+
 @media only screen and (min-width: 48rem) /* 768px */ {
-  .modal-content--mobile {
+  .sidebar {
     display: none;
   }
 
