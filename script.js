@@ -12,6 +12,10 @@ const main = document.querySelector('main');
 const next = document.querySelectorAll('.next');
 const previous = document.querySelectorAll('.previous');
 const productImage = document.querySelectorAll('.product-image');
+const decrementBtn = document.querySelector('.decrement');
+const incrementBtn = document.querySelector('.increment');
+const quantity = document.querySelector('.quantity .action span');
+const addToCart = document.querySelector('.add-to-cart');
 
 function handelCart() {
   function hideCart() {
@@ -59,6 +63,46 @@ function handelModal() {
   closeIcons.forEach(close => close.addEventListener('click', hideModal));
 }
 
+function setActiveThumbnail(target) {
+  const thumbnails = target
+    .closest('.images, .products-images')
+    .querySelectorAll('img');
+  for (let thumbnail of thumbnails)
+    thumbnail.parentNode.classList.toggle('active', thumbnail == target);
+}
+
+function addItemToCart(q) {
+  const cartItem = document.createElement('div');
+  cartItem.classList.add('cart-item');
+
+  const image = document.createElement('img');
+  image.src = './images/image-product-1-thumbnail.jpg';
+  image.alt = 'cart image';
+  cartItem.appendChild(image);
+
+  const details = document.createElement('div');
+  details.innerHTML = `<p class="cart-item-title">Fall Limited Edition Sneakers</p>
+    <p class="cart-item-price">$${q * 125.0} <span>$${q * 125.0}</span></p>`;
+  cartItem.appendChild(details);
+
+  const deleteButton = document.createElement('img');
+  deleteButton.src = './images/icon-delete.svg';
+  deleteButton.alt = 'delete item';
+  cartItem.appendChild(deleteButton);
+
+  const cartItems = document.createElement('div');
+  cartItems.classList.add('cart-items');
+  cartItems.appendChild(cartItem);
+
+  const checkoutButton = document.createElement('button');
+  checkoutButton.classList.add('checkout');
+  checkoutButton.textContent = 'Checkout';
+
+  cart.innerHTML = `<h4>Cart</h4>`;
+  cart.appendChild(cartItems);
+  cart.appendChild(checkoutButton);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   handelCart();
   handelModal();
@@ -102,14 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function setActiveThumbnail(target) {
-    const thumbnails = target
-      .closest('.images, .products-images')
-      .querySelectorAll('img');
-    for (let thumbnail of thumbnails)
-      thumbnail.parentNode.classList.toggle('active', thumbnail == target);
-  }
-
   productImage.forEach(product => {
     const heroImg =
       product.parentNode.parentNode.childNodes[1].querySelector('img');
@@ -117,5 +153,28 @@ document.addEventListener('DOMContentLoaded', () => {
       heroImg.src = e.target.src.replace('-thumbnail', '');
       setActiveThumbnail(e.target);
     });
+  });
+
+  let q = 0;
+  decrementBtn.addEventListener('click', e => {
+    if (q > 0) q--;
+    if (quantity) quantity.innerHTML = q;
+  });
+
+  incrementBtn.addEventListener('click', e => {
+    q++;
+    if (quantity) quantity.innerHTML = q;
+  });
+
+  addToCart.addEventListener('click', e => {
+    if (q > 0) addItemToCart(q);
+  });
+
+  cart.addEventListener('click', ({ target }) => {
+    if (target.tagName === 'IMG' && target.alt === 'delete item')
+      cart.innerHTML = `<h4>Cart</h4>
+      <div class="cart-items">
+        <h4>Your Cart Is Empty</h4>
+      </div>`;
   });
 });
