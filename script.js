@@ -104,6 +104,10 @@ function addItemToCart(q) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('quantity')) {
+    addItemToCart(localStorage.getItem('quantity'));
+  }
+
   handelCart();
   handelModal();
   document.addEventListener('keydown', e => {
@@ -155,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  let q = 0;
+  let q = localStorage.getItem('quantity') || 0;
   decrementBtn.addEventListener('click', e => {
     if (q > 0) q--;
     if (quantity) quantity.innerHTML = q;
@@ -168,13 +172,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   addToCart.addEventListener('click', e => {
     if (q > 0) addItemToCart(q);
+    localStorage.setItem('quantity', q);
   });
 
   cart.addEventListener('click', ({ target }) => {
-    if (target.tagName === 'IMG' && target.alt === 'delete item')
+    if (target.tagName === 'IMG' && target.alt === 'delete item') {
       cart.innerHTML = `<h4>Cart</h4>
-      <div class="cart-items">
-        <h4>Your Cart Is Empty</h4>
-      </div>`;
+        <div class="cart-items">
+          <h4>Your Cart Is Empty</h4>
+        </div>`;
+      localStorage.removeItem('quantity');
+    }
   });
 });
