@@ -184,7 +184,7 @@ nav {
   .list-item {
     margin: 0 0.5rem;
     color: var(--text-color);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     position: relative;
     cursor: pointer;
   }

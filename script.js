@@ -108,8 +108,10 @@ function addItemToCart(q) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('quantity')) {
-    addItemToCart(localStorage.getItem('quantity'));
+  let localStorageQuantity = localStorage.getItem('quantity');
+  if (localStorageQuantity) {
+    addItemToCart(localStorageQuantity);
+    quantity.innerHTML = localStorageQuantity;
   }
 
   handelCart();
@@ -163,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  let q = localStorage.getItem('quantity') || 0;
+  let q = localStorageQuantity || 0;
   decrementBtn.addEventListener('click', e => {
     if (q > 0) q--;
     if (quantity) quantity.innerHTML = q;
