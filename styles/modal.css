@@ -54,6 +54,7 @@
   position: absolute;
   top: 2%;
   left: 7%;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 48rem) /* 768px */ {
@@ -78,11 +79,16 @@
     height: 100%;
   }
 
-  .modal .products-images {
+  .modal-content--desktop {
     position: absolute;
-    left: 24%;
-    top: 85%;
-    transform: translate(50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .modal .products-images {
+    margin-top: 1.5rem;
+    padding: 0 2rem;
     justify-content: space-between;
     display: grid;
     grid-template-columns: repeat(4, 90px);
@@ -106,10 +112,6 @@
   .modal-content--desktop .hero-image {
     width: 500px;
     height: 500px;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   .modal-content--desktop .hero-image img {
@@ -149,8 +151,8 @@
 
   .close {
     position: absolute;
-    top: 8%;
-    right: 34%;
+    top: -3rem;
+    right: -0.5rem;
     width: 20px;
     height: 20px;
     cursor: pointer;
