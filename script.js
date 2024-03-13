@@ -16,6 +16,7 @@ const decrementBtn = document.querySelector('.decrement');
 const incrementBtn = document.querySelector('.increment');
 const quantity = document.querySelector('.quantity .action span');
 const addToCart = document.querySelector('.add-to-cart');
+const cartQuantityIcon = document.querySelector('.cart-icon--container span');
 
 function handelCart() {
   function hideCart() {
@@ -101,6 +102,9 @@ function addItemToCart(q) {
   cart.innerHTML = `<h4>Cart</h4>`;
   cart.appendChild(cartItems);
   cart.appendChild(checkoutButton);
+
+  cartQuantityIcon.classList.remove('hide');
+  cartQuantityIcon.innerHTML = q;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -182,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h4>Your Cart Is Empty</h4>
         </div>`;
       localStorage.removeItem('quantity');
+      cartQuantityIcon.classList.add('hide');
     }
   });
 });
